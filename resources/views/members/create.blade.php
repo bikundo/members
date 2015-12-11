@@ -14,7 +14,7 @@
                 <input type="file" class="form-control" name="logo" value="{{ old('logo') }}">
             </div>
             <div class='form-group'>
-                {!!  Form::label('name', 'select sector') !!}
+                {!!  Form::label('name', 'Select Sector') !!}
                 <select name="sector_id" class="form-control">
                     @foreach($sectors as $sector)
                         <option value="{{$sector->id}}">{{$sector->name}}</option>
