@@ -6,19 +6,19 @@
             @include('partials.messages')
             {!!  Form::open(['route' => ['members.links.save',$member->id], 'method' => 'post', 'files'=>'true']) 	 !!}
             <div>
-                website
+                Website
                 <input type="text" class="form-control" name="website" value="{{ old('website') }}">
             </div>
             <div>
-                facebook link
+                Facebook Link
                 <input type="text" class="form-control" name="facebook" value="{{ old('facebook') }}">
             </div>
             <div>
-                twitter link
+                Twitter Link
                 <input type="text" class="form-control" name="twitter" value="{{ old('twitter') }}">
             </div>
             <div>
-                Google Plus link
+                Google Plus Link
                 <input type="text" class="form-control" name="google_plus" value="{{ old('google_plus') }}">
             </div>
             <hr>

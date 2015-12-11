@@ -6,11 +6,11 @@
         <div class="col-md-6 col-md-offset-3" style="margin-top: 10%">
             {!!  Form::open(['route' => 'members.save', 'method' => 'post', 'files'=>'true']) 	 !!}
             <div>
-                name
+                Name
                 <input type="text" class="form-control" name="name" value="{{ old('name') }}">
             </div>
             <div>
-                logo
+                Logo
                 <input type="file" class="form-control" name="logo" value="{{ old('logo') }}">
             </div>
             <div class='form-group'>
@@ -22,7 +22,7 @@
                 </select>
             </div>
             <div>
-                description
+                Description
                 <textarea name="description" class="form-control" id="" cols="30" rows="10">
                 </textarea>
             </div>
