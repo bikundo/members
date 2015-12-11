@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 Route::get('/members/frontend', function () {
 //    Approved()->
-    $members = \App\Member::with('sector')->get();
+    $members = \App\Member::with('sector')->approved()->get();
 
     return view('members.frontend', compact('members'));
 });
