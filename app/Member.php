@@ -10,7 +10,17 @@ class Member extends Model
 
     public function sector()
     {
-        return $this->belongsTo('App\Sector');
+        return $this->belongsTo(Sector::class);
+    }
+
+    public function contacts()
+    {
+        return $this->hasMany(Contact::class);
+    }
+
+    public function projects()
+    {
+        return $this->hasMany(Project::class);
     }
 
     public function scopeApproved($query)

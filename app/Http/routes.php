@@ -32,7 +32,9 @@ Route::get('/thanks', [
 Route::group(['middleware' => 'auth'], function () {
     Route::get('members/create', ['uses' => 'MembersController@Create', 'as' => 'members.create']);
     Route::get('members/links/{id}', ['uses' => 'MembersController@AddLinks', 'as' => 'members.links']);
+    Route::get('members/projects/{id}', ['uses' => 'MembersController@AddProjects', 'as' => 'members.projects']);
     Route::post('members/links/{id}', ['uses' => 'MembersController@SaveLinks', 'as' => 'members.links.save']);
+    Route::post('member/project/{id}/save', ['uses' => 'MembersController@SaveProject', 'as' => 'members.project.save']);
     Route::post('members', ['uses' => 'MembersController@store', 'as' => 'members.save']);
     Route::get('members/', ['uses' => 'MembersController@index', 'as' => 'members.view']);
     Route::get('members/approve/{id}', ['uses' => 'MembersController@approve', 'as' => 'members.approve']);
@@ -45,3 +47,4 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 // Registration routes...
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
+Route::get('members/{id}', ['uses' => 'MembersController@show', 'as' => 'members.show']);

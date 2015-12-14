@@ -22,13 +22,12 @@
                 </select>
             </div>
             <div>
-                Description
-                <textarea name="description" class="form-control" id="" cols="30" rows="10">
-                </textarea>
+                Describe in 200 words what you are doing
+                <textarea name="description" class="form-control" id=""></textarea>
             </div>
             <hr>
             <div>
-                <button type="submit" class="btn-block btn btn-primary">register</button>
+                <button type="submit" class="btn-block btn btn-danger-outline">register new member</button>
             </div>
             {!!  Form::close() !!}
         </div>

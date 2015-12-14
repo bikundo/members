@@ -11,7 +11,28 @@
           integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
 </head>
 <body>
-<nav class="navbar navbar-light bg-faded">
+<style>
+    .navbar-light .navbar-nav .nav-link {
+        color: black;
+        font-weight: bold;
+        margin-bottom: 4px;
+    }
+
+    .navbar-light {
+        margin-top: 40px;
+    }
+
+    .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+        color: red;
+        border-bottom: 1px solid red;
+        margin-bottom: 3px;
+    }
+
+    .btn {
+        text-transform: uppercase;
+    }
+</style>
+<nav class="navbar navbar-light">
     <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
         &#9776;
     </button>
@@ -27,19 +48,19 @@
             <li class="nav-item">
                 <a class="nav-link" href="{!! route('members.create') !!}">Member registration</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{!! url('members/frontend') !!}">View Members</a>
+            </li>
             @if(auth()->check())
-                <li class="nav-item pull-xs-right">
-                    <a class="nav-link" href="{!! url('auth/logout') !!}">logout</a>
-                </li>
                 @if(auth()->user()->role == 'admin')
-                    <li class="nav-item pull-xs-right">
+                    <li class="nav-item ">
                         <a class="nav-link" href="{!! url('members') !!}">manage members</a>
                     </li>
                 @endif
+                <li class="nav-item">
+                    <a class="nav-link" href="{!! url('auth/logout') !!}">logout</a>
+                </li>
             @endif
-            <li class="nav-item pull-xs-right">
-                <a class="nav-link" href="{!! url('members/frontend') !!}">View Members</a>
-            </li>
         </ul>
     </div>
 </nav>

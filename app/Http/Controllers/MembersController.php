@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Contact;
 use App\Member;
+use App\Project;
 use App\Sector;
+use Illuminate\Database\MigrationServiceProvider;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -80,7 +83,36 @@ class MembersController extends Controller
         $member->google_plus = $request->get('google_plus', null);
         $member->save();
 
-        return redirect()->route('thank.you');
+        $contact = new Contact;
+        $contact->name = $request->get('name');
+        $contact->phone = $request->get('phone');
+        $contact->email = $request->get('email');
+        $contact->member_id = $member->id;
+        $request->address = $request->get('address');
+        $contact->save();
+
+        return redirect()->route('members.projects', $member->id);
+    }
+
+    public function AddProjects($id)
+    {
+        $member = Member::find($id);
+
+        return view('members.add-project', compact('member'));
+    }
+
+    public function SaveProject(Request $request)
+    {
+        $project = new Project;
+        $project->fill($request->except('_token', 'submitBtn'));
+        $project->save();
+        $member = Member::find($request->get('member_id'));
+        if ($request->get('submitBtn') == 'save') {
+
+            return redirect()->route('thank.you');
+        }
+
+        return back()->withMember($member)->withMessage('project saved');
     }
 
     private function upload_pic($i)
@@ -102,7 +134,8 @@ class MembersController extends Controller
      */
     public function show($id)
     {
-        //
+        $member = Member::with('contacts', 'projects', 'sector')->find($id);
+        dd($member);
     }
 
     /**
