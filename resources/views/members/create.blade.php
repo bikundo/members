@@ -7,11 +7,11 @@
             {!!  Form::open(['route' => 'members.save', 'method' => 'post', 'files'=>'true']) 	 !!}
             <div>
                 Name
-                <input type="text" class="form-control" name="name" value="{{ old('name') }}">
+                <input type="text" required class="form-control" name="name" value="{{ old('name') }}">
             </div>
             <div>
                 Logo
-                <input type="file" class="form-control" name="logo" value="{{ old('logo') }}">
+                <input type="file" required class="form-control" name="logo" value="{{ old('logo') }}">
             </div>
             <div class='form-group'>
                 {!!  Form::label('name', 'Select Sector') !!}
@@ -23,7 +23,7 @@
             </div>
             <div>
                 Describe in 200 words what you are doing
-                <textarea name="description" class="form-control" id=""></textarea>
+                <textarea name="description" required class="form-control" id=""></textarea>
             </div>
             <hr>
             <div>
