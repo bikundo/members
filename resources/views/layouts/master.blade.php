@@ -64,6 +64,14 @@
             @endif
         </ul>
     </div>
+    <style>
+        .logo {
+            float: right;
+            margin-right: 180px;
+            margin-top: -34px;
+        }
+    </style>
+    <img src="{!! url('img/logo.png') !!}" class="logo" alt="">
 </nav>
 @yield('content')
 
