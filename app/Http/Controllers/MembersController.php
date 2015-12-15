@@ -135,7 +135,8 @@ class MembersController extends Controller
     public function show($id)
     {
         $member = Member::with('contacts', 'projects', 'sector')->find($id);
-        dd($member);
+
+        return view('members.show', compact('member'));
     }
 
     /**

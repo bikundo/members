@@ -48,6 +48,7 @@
                         <img data-src="{!! url( $member->logo )!!}" src="{!! url( $member->logo )!!}" class=" img img-responsive" alt="Card image cap">
                         <h4 class="card-title">{!! $member->name !!}</h4>
                         <p class="card-text">{!! $member->description !!}</p>
+                        <a class="btn btn-block btn-danger-outline" href="{!! route('members.show', $member->id) !!}">View</a>
                     </div>
                 @endforeach
             @else

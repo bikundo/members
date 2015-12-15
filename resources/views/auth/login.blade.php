@@ -17,7 +17,7 @@
                 </div>
                 <hr>
                 <div>
-                    <button type="submit" class="btn-block btn btn-primary">Login</button>
+                    <button type="submit" class="btn-block btn btn-danger-outline">Login</button>
                 </div>
             </form>
         </div>
